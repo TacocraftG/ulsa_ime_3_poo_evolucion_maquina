@@ -49,11 +49,11 @@ La clase sera utlizada por otros desarroladores (mis compañeros), esta clase se
 
 a) ¿Qué imprime `ejecutarTurno()` para el torno y la fresadora? ¿Por qué no imprime "torneando" ni "fresando"?
 
-[Inserta aquí tu respuesta]
+Ya que el metodo Procesar no fue declarado como virtual.
 
 b) ¿Por qué el torno acumula 65 s y no 135 s?
 
-[Inserta aquí tu respuesta]
+Por que se ejecuto el metodo de maquina y no el de torno
 
 **3.1 Etapa 1. Invariantes y constructores explicit**
 
