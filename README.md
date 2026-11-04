@@ -8,17 +8,17 @@ Llena cada espacio conforme avances en las fases de [PRACTICA.md](PRACTICA.md).
 
 **1.1 El problema con mis propias palabras**
 
-[Inserta aquí tu respuesta]
+Se necesita mejorar un sistema para poder controlar una linea de manufactura, en esta linea hay diferentes tipos de maquinas que son parte de un proceso. Existe la clase Maquina que funciona de forma muy superficial, el objetivo es implementar una actualizacion empleando los visto en clase.
 
 **1.2 Reglas que siempre deben cumplirse en una máquina** (escribe al menos tres)
 
-1. _____
-2. _____
-3. _____
+1. La cantidad de piezas que se procesan y el tiempo de proceso de cada maquina sera mayor o igual a cero.
+2. El nombre de las maquinas debe ser una cadena de texto que no este vacia y que no contenga solo caracteres nulos.
+3. El tiempo que tarda un ciclo debe ser mayor a cero para evitar divisiones entre cero.
 
 **1.3 ¿Quién más usa la clase `Maquina`? ¿Qué podría salir mal si otro equipo crea una máquina nueva sin conocer tus reglas?**
 
-[Inserta aquí tu respuesta]
+La clase sera utlizada por otros desarroladores (mis compañeros), esta clase sera un punto de partida para heredar de esta y programar nuevas maquinas. Si un equipo nuevo de desarrolladores crearar una maquina nueva sin leer mis rerglas, podrian toparse con problemas que impidan el poder compilar, asi como cometer errores que hagan al sistema principal fallar.
 
 ## Fase 2. Diseñar la solución
 
