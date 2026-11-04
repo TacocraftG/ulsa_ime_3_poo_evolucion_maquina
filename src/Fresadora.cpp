@@ -1,10 +1,11 @@
 #include "Fresadora.h"
 #include <iostream>
 
-Fresadora::Fresadora(const std::string& nombre) : Maquina(nombre) {}
+Fresadora::Fresadora(const std::string& nombre) : Maquina(nombre){}
 
-void Fresadora::procesar() {
-    std::cout << nombre << ": fresando pieza\n";
-    piezasProcesadas++;
-    tiempoTrabajadoSeg += 60;
+void Fresadora::procesar()
+{
+    std::cout << getNombre() << ": fresando pieza\n";
+    registrarPieza();
+    agregarTiempo(60);
 }

@@ -5,13 +5,16 @@
 #include <iostream>
 
 // Ejecuta varios ciclos de cualquier maquina de la planta.
-void ejecutarTurno(Maquina& m, int ciclos) {
-    for (int i = 0; i < ciclos; i++) {
+void ejecutarTurno(Maquina& m, int ciclos)
+{
+    for (int i = 0; i < ciclos; i++)
+    {
         m.procesar();
     }
 }
 
-int main() {
+int main()
+{
     Torno torno("Torno T-01");
     Fresadora fresadora("Fresadora F-01");
 

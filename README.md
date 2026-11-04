@@ -59,15 +59,17 @@ Por que se ejecuto el metodo de maquina y no el de torno
 
 a) ¿Qué regla de la sección 1.2 rompió `torno.piezasProcesadas = -5;`?
 
-[Inserta aquí tu respuesta]
+rompio la regla de que la cantidad de piezas procesadas no puede ser negativa.
+al asignar -5 el objeto quedo en un estado invalido.
 
 b) ¿De dónde salió la máquina "Fantasma"? ¿Qué hizo el compilador sin que se lo pidieras?
 
-[Inserta aquí tu respuesta]
+El constructor de Maquina aceptaba un string y no estaba declarado explicit, por eso, el compilador convirtio automaticamente "Fantasma" en una Maquina temporal para poder pasarla a imprimirFicha.
 
 c) ¿Qué tuviste que cambiar en `Torno` y `Fresadora` y por qué?
 
-[Inserta aquí tu respuesta]
+Como los atributos de Maquina ahora son privados, Torno y Fresadora ya no pueden modificarlos directamente, cambie sus metodos procesar para obtener el nombre con getNombre y actualizar piezas y tiempo con registrarPieza y agregarTiempo. 
+Tambien declare sus constructores explicit para evitar conversiones automaticas no intencionales.
 
 **3.2 Etapa 2. Virtual y override**
 

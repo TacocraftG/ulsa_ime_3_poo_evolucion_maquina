@@ -3,9 +3,10 @@
 
 #include "Maquina.h"
 
-class Torno : public Maquina {
+class Torno : public Maquina
+{
 public:
-    Torno(const std::string& nombre);
+    explicit Torno(const std::string& nombre);
 
     void procesar();
 };
