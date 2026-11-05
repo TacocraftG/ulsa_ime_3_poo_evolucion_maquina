@@ -119,11 +119,22 @@ El torno de main se destruyo directamente como objeto local de tipo Torno, no a 
 
 a) Copia los mensajes de error y explica con tus palabras qué dice cada uno.
 
-[Inserta aquí tu respuesta]
+El compilador indica:
+
+error: cannot declare variable 'pulidora' to be of abstract type 'Pulidora'
+note: because the following virtual functions are pure within 'Pulidora':
+note: virtual void Maquina::procesar()
+
+error: cannot declare variable 'generica' to be of abstract type 'Maquina'
+note: because the following virtual functions are pure within 'Maquina':
+note: virtual void Maquina::procesar()
+note: virtual int Maquina::tiempoCicloSeg() const
+
+Esto significa que no se puede crear Pulidora porque le falta implementar procesar. Tampoco se puede crear Maquina directamente porque es abstracta y sus metodos virtuales puros no tienen implementacion concreta.
 
 b) ¿Por qué es mejor este error de compilación que el comportamiento "generico" de antes?
 
-[Inserta aquí tu respuesta]
+Es mejor porque el compilador detecta el problema antes de ejecutar el programa. Asi no se agregan maquinas que no hacen un proceso real ni se producen piezas con un comportamiento generico por accidente.
 
 **3.6 Etapa 6. El contrato que el compilador no ve**
 
