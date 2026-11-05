@@ -16,9 +16,5 @@ int main()
     linea.ejecutarTurno(2);
     linea.imprimirReporte();
 
-    std::cout << "--- Objetos originales ---\n";
-    torno.mostrarEstado();
-    fresadora.mostrarEstado();
-
     return 0;
 }

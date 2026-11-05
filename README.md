@@ -85,7 +85,7 @@ No recuerdo.
 
 a) ¿Por qué la línea procesó todo como "generico" si `procesar()` ya es virtual?
 
-Porque ControlDeLinea guardaba las maquinas por valor en un vector de Maquina. Al copiarlas se perdio la parte derivada de Torno y Fresadora, asi que se produjo slicing y se ejecuto el metodo de Maquina.
+Porque ControlDeLinea guardaba las maquinas por valor en un vector de Maquina. Al copiarlas se perdio la parte derivada de Torno y Fresadora, asi que se produjo slicing y se ejecuto el metodo de Maquina. No entendi esto.
 
 b) ¿Por qué el torno y la fresadora originales quedaron con 0 piezas?
 
@@ -93,23 +93,27 @@ Porque ControlDeLinea guardaba copias de las maquinas y el turno modifico esas c
 
 c) La relación entre `ControlDeLinea` y `Maquina`, ¿es composición o agregación? ¿Por qué?
 
-Es agregacion porque ControlDeLinea solo guarda punteros a maquinas que existen fuera de la linea. La linea no las crea ni las destruye, asi que pueden seguir existiendo cuando ControlDeLinea desaparece.
+Es agregacion,la linea no las crea ni las destruye, asi que pueden seguir existiendo cuando ControlDeLinea desaparece.
 
 **3.4 Etapa 4. Destructores**
 
 | Momento | Mensajes de destrucción que aparecieron |
 | --- | --- |
-| `delete temporal;` sin destructor virtual | _____ |
-| `delete temporal;` con destructor virtual | _____ |
-| Al terminar `main` (torno y fresadora) | _____ |
+| `delete temporal;` sin destructor virtual | Destruyendo Maquina |
+| `delete temporal;` con destructor virtual | Destruyendo Torno, Destruyendo Motor, Destruyendo Maquina |
+| Al terminar `main` (torno y fresadora) | Destruyendo Maquina, Destruyendo Torno, Destruyendo Motor, Destruyendo Maquina |
 
 a) ¿Qué advertencia mostró el compilador? ¿Por qué decimos que ya te estaba avisando del problema?
 
-[Inserta aquí tu respuesta]
+El compilador advirtio que borrar un objeto de tipo derivado mediante un puntero a Maquina, podia causar comportamiento indefinido. 
+
+La advertencia anticipaba que no se destruirian correctamente las partes de Torno y su Motor.
 
 b) ¿Por qué el torno de `main` sí se destruyó completo aunque el destructor no fuera virtual? ¿A qué máquina corresponde el primer "Destruyendo Maquina" después de "Fin de main"?
 
-[Inserta aquí tu respuesta]
+El torno de main se destruyo directamente como objeto local de tipo Torno, no a traves de un puntero a Maquina.
+
+ El primer mensaje despues de Fin de main corresponde a la fresadora, que se creo despues del torno y se destruye primero al salir de main.
 
 **3.5 Etapa 5. La clase abstracta**
 
