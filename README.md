@@ -85,15 +85,15 @@ No recuerdo.
 
 a) ¿Por qué la línea procesó todo como "generico" si `procesar()` ya es virtual?
 
-[Inserta aquí tu respuesta]
+Porque ControlDeLinea guardaba las maquinas por valor en un vector de Maquina. Al copiarlas se perdio la parte derivada de Torno y Fresadora, asi que se produjo slicing y se ejecuto el metodo de Maquina.
 
 b) ¿Por qué el torno y la fresadora originales quedaron con 0 piezas?
 
-[Inserta aquí tu respuesta]
+Porque ControlDeLinea guardaba copias de las maquinas y el turno modifico esas copias, no los objetos originales.
 
 c) La relación entre `ControlDeLinea` y `Maquina`, ¿es composición o agregación? ¿Por qué?
 
-[Inserta aquí tu respuesta]
+Es agregacion porque ControlDeLinea solo guarda punteros a maquinas que existen fuera de la linea. La linea no las crea ni las destruye, asi que pueden seguir existiendo cuando ControlDeLinea desaparece.
 
 **3.4 Etapa 4. Destructores**
 
