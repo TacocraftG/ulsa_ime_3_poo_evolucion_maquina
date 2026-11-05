@@ -30,7 +30,17 @@ void Maquina::procesar()
 {
     std::cout << nombre << ": procesamiento generico\n";
     registrarPieza();
-    agregarTiempo(10);
+    agregarTiempo(tiempoCicloSeg());
+}
+
+int Maquina::tiempoCicloSeg() const
+{
+    return 10;
+}
+
+double Maquina::capacidadPorHora() const
+{
+    return 3600.0 / tiempoCicloSeg();
 }
 
 const std::string& Maquina::getNombre() const
@@ -51,5 +61,6 @@ int Maquina::getTiempoTrabajadoSeg() const
 void Maquina::mostrarEstado() const
 {
     std::cout << nombre << " | piezas: " << piezasProcesadas
-              << " | tiempo: " << tiempoTrabajadoSeg << " s\n";
+              << " | tiempo: " << tiempoTrabajadoSeg << " s"
+              << " | capacidad: " << capacidadPorHora() << " pzas/h\n";
 }

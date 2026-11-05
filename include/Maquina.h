@@ -17,7 +17,9 @@ protected:
 public:
     explicit Maquina(const std::string& nombre);
 
-    void procesar();
+    virtual void procesar();
+    virtual int tiempoCicloSeg() const;
+    double capacidadPorHora() const;
 
     const std::string& getNombre() const;
     int getPiezasProcesadas() const;

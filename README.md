@@ -75,11 +75,11 @@ Tambien declare sus constructores explicit para evitar conversiones automaticas 
 
 a) La fresadora acumula 180 s, pero reporta 360 pzas/h. ¿Por qué un cálculo usó 60 s y el otro 10 s?
 
-[Inserta aquí tu respuesta]
+El metodo tiempoCicloSeg de Fresadora no tenia const, asi que no sobrescribia el metodo de Maquina.
 
 b) ¿Tu compilador mostró alguna advertencia antes de usar `override`? ¿Qué mensaje dio después de agregar `override`?
 
-[Inserta aquí tu respuesta]
+No recuerdo.
 
 **3.3 Etapa 3. La línea de producción**
 
