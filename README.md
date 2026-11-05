@@ -142,15 +142,15 @@ Asi no se agregan maquinas que no hacen un proceso real ni se producen piezas co
 
 a) ¿Qué partes del contrato violó `InspeccionVisual`?
 
-[Inserta aquí tu respuesta]
+No registraba la pieza ni agregaba el tiempo trabajado, a parte de devolver 0 segundos, teniendo en cuenta que el tiempo de ciclo debe ser mayor que cero.
 
 b) ¿Por qué el compilador no lo detectó?
 
-[Inserta aquí tu respuesta]
+El compilador verifica que los nombres, parametros y tipos coincidan, pero no puede saber si el comportamiento cumple las reglas del contrato.
 
 c) ¿Qué pasaría si el próximo equipo tampoco lee el comentario del contrato?
 
-[Inserta aquí tu respuesta]
+El programa puede reportar piezas o tiempos incorrectos.
 
 **3.7 Etapa 7. La base hace cumplir el contrato**
 

@@ -18,7 +18,13 @@ public:
     explicit Maquina(const std::string& nombre);
     virtual ~Maquina() = default;
 
+    // CONTRATO de procesar(): cada llamada procesa exactamente 1 pieza.
+    // Toda clase derivada debe llamar una vez a registrarPieza() y una vez
+    // a agregarTiempo(tiempoCicloSeg()).
     virtual void procesar() = 0;
+
+    // CONTRATO de tiempoCicloSeg(): devuelve los segundos que tarda un ciclo
+    // Siempre debe ser mayor que cero.
     virtual int tiempoCicloSeg() const = 0;
     double capacidadPorHora() const;
 
