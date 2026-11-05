@@ -130,11 +130,13 @@ note: because the following virtual functions are pure within 'Maquina':
 note: virtual void Maquina::procesar()
 note: virtual int Maquina::tiempoCicloSeg() const
 
-Esto significa que no se puede crear Pulidora porque le falta implementar procesar. Tampoco se puede crear Maquina directamente porque es abstracta y sus metodos virtuales puros no tienen implementacion concreta.
+no se puede crear pulidora porque le falta implementar procesar. 
+
+no se puede crear Maquina directamente porque es abstracta.
 
 b) ¿Por qué es mejor este error de compilación que el comportamiento "generico" de antes?
 
-Es mejor porque el compilador detecta el problema antes de ejecutar el programa. Asi no se agregan maquinas que no hacen un proceso real ni se producen piezas con un comportamiento generico por accidente.
+Asi no se agregan maquinas que no hacen un proceso real ni se producen piezas con un comportamiento generico por accidente.
 
 **3.6 Etapa 6. El contrato que el compilador no ve**
 
