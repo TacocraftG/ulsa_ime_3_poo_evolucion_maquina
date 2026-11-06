@@ -3,6 +3,9 @@
 
 #include <string>
 
+// Clase base abstracta de todas las maquinas de la planta.
+// Las derivadas implementan el trabajo fisico y el tiempo de ciclo; la base
+// valida el tiempo y registra una pieza por cada ciclo procesado.
 class Maquina
 {
 private:
@@ -10,21 +13,16 @@ private:
     int piezasProcesadas;
     int tiempoTrabajadoSeg;
 
-protected:
     void registrarPieza();
     void agregarTiempo(int segundos);
+    int tiempoCicloValidado() const;
+    virtual void ejecutarCiclo() = 0;
 
 public:
     explicit Maquina(const std::string& nombre);
     virtual ~Maquina() = default;
 
-    // CONTRATO de procesar(): cada llamada procesa exactamente 1 pieza.
-    // Toda clase derivada debe llamar una vez a registrarPieza() y una vez
-    // a agregarTiempo(tiempoCicloSeg()).
-    virtual void procesar() = 0;
-
-    // CONTRATO de tiempoCicloSeg(): devuelve los segundos que tarda un ciclo
-    // Siempre debe ser mayor que cero.
+    void procesar();
     virtual int tiempoCicloSeg() const = 0;
     double capacidadPorHora() const;
 

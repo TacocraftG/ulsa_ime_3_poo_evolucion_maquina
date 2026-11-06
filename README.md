@@ -156,15 +156,17 @@ El programa puede reportar piezas o tiempos incorrectos.
 
 a) ¿Cómo puede una clase derivada sobrescribir un método que es privado en la base?
 
-[Inserta aquí tu respuesta]
+la derivada puede sobrescribir el metodo virtual privado porque private impide llamarlo directamente.
 
 b) ¿Qué ocurre ahora con una máquina cuyo tiempo de ciclo es 0? Compáralo con la Etapa 6.
 
-[Inserta aquí tu respuesta]
+La base detecta que el tiempo no es valido y lanza una excepcion con el nombre de la maquina. 
+
+En la etapa 6 se podia calcular una capacidad infinita y el error llegaba al reporte, ahora se detiene el procesamiento con un mensaje claro.
 
 c) ¿Por qué la línea ignoró el "atajo" del torno, pero la llamada directa no? ¿Cómo corregiste el diseño?
 
-[Inserta aquí tu respuesta]
+La linea usa una referencia o puntero a maquina y llama al procesar no virtual de la base, por eso sigue las reglas centrales.
 
 **3.8 Etapa 8. Herencia mal usada**
 
