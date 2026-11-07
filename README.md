@@ -172,11 +172,13 @@ La linea usa una referencia o puntero a maquina y llama al procesar no virtual d
 
 a) Da al menos dos razones por las que `BandaTransportadora : public Motor` es un error de diseño.
 
-[Inserta aquí tu respuesta]
+Una banda no es un motor. 
+
+la herencia expone fijarVelocidad() para que cualquier parte del programa cambie directamente la velocidad de la banda.
 
 b) La relación entre `BandaTransportadora` y `Motor`, ¿es composición o agregación? ¿Por qué?
 
-[Inserta aquí tu respuesta]
+es composicion el motor forma parte de la banda y no se comparte como un objeto externo.
 
 **3.9 Etapa 9. La librería y la prueba final**
 
