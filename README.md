@@ -198,9 +198,9 @@ b) ¿Qué pasó al escribir `-lplanta` antes de `src/main.cpp`? ¿Por qué?
 
 | # | Etapa | Duda | Cómo la resolví | Fuente |
 | --- | --- | --- | --- | --- |
-| 1 | _____ | _____ | _____ | _____ |
-| 2 | _____ | _____ | _____ | _____ |
-| 3 | _____ | _____ | _____ | _____ |
+| 1 | 3 | Por que se perdia el comportamiento de Torno y Fresadora al copiarlas como Maquina | Comprendi que el vector guardaba copias de la clase base y se perdia la parte derivada; la linea debe guardar punteros a las maquinas existentes | PRACTICA.md, Etapa 3 |
+| 2 | 7 | Como una derivada puede sobrescribir un metodo privado de la base | Distingui el control de acceso de la sobrescritura virtual: private impide llamarlo directamente, pero la base puede invocarlo mediante enlace dinamico | PRACTICA.md, Etapa 7 |
+| 3 | 9 | Por que importa el orden de la libreria al enlazar | Aprendi que el enlazador busca dependencias de izquierda a derecha y por eso libplanta.a va despues del codigo que la utiliza | PRACTICA.md, Etapa 9 |
 
 ## Fase 4. Probar y mejorar
 
@@ -239,23 +239,23 @@ https://github.com/TacocraftG/ulsa_ime_3_poo_evolucion_maquina.git
 
 | Error | Etapa en que apareció | Restricción que lo impide ahora | ¿Quién lo detecta: el compilador o el programa? |
 | --- | --- | --- | --- |
-| Contadores con valores inválidos | _____ | _____ | _____ |
-| Máquina "fantasma" creada a escondidas | _____ | _____ | _____ |
-| Método que no sobrescribe por un `const` | _____ | _____ | _____ |
-| Máquinas copiadas y "rebanadas" | _____ | _____ | _____ |
-| Destrucción incompleta | _____ | _____ | _____ |
-| Máquina sin `procesar()` propio | _____ | _____ | _____ |
-| Tiempo de ciclo inválido | _____ | _____ | _____ |
-| Derivada que no registra sus piezas | _____ | _____ | _____ |
+| Contadores con valores inválidos | 1 | Los atributos son privados y solo la base modifica el estado mediante sus metodos | El compilador impide el acceso directo |
+| Máquina "fantasma" creada a escondidas | 1 | El constructor de Maquina es explicit y no permite conversiones implicitas | El compilador |
+| Método que no sobrescribe por un const | 2 | Las derivadas usan override, que exige que la firma coincida | El compilador |
+| Máquinas copiadas y "rebanadas" | 3 | ControlDeLinea guarda punteros a Maquina en vez de copias por valor | El compilador y el diseño de la linea |
+| Destrucción incompleta | 4 | Maquina tiene destructor virtual | El programa al destruir objetos mediante un puntero a la base |
+| Máquina sin procesar propio | 5 | Maquina es abstracta y sus metodos ejecutarCiclo y tiempoCicloSeg son virtuales puros | El compilador |
+| Tiempo de ciclo inválido | 7 | La base valida que el ciclo sea mayor que cero antes de procesar o calcular capacidad | El programa mediante una excepcion |
+| Derivada que no registra sus piezas | 7 | procesar no es virtual y la base registra cada pieza y el tiempo del ciclo | El diseno de la base y el compilador impiden saltarse el proceso |
 
 **6.2 ¿Cuál de los errores fue el más peligroso: el de compilación, la advertencia o el que compilaba sin problemas? ¿Por qué?**
 
-[Inserta aquí tu respuesta]
+El mas peligroso fue el que compilaba sin problemas, porque podia producir reportes incorrectos sin avisar, un error de compilacion detiene el programa y una advertencia al menos senala que hay un riesgo que se debe revisar.
 
 **6.3 ¿Qué aprendiste en esta práctica?**
 
-[Inserta aquí tu respuesta]
+Se supone que aprendi que el diseno de las clases puede prevenir errores: encapsular el estado, usar metodos virtuales y override correctamente, y hacer que la clase base controle las reglas comunes. Tambien aprendi a usar composicion cuando una clase tiene un componente y agregacion cuando solo conoce objetos que existen por separado.
 
 **6.4 ¿Qué cambiarías de tu proceso la próxima vez?**
 
-[Inserta aquí tu respuesta]
+Establecer las todas las reglas de las clases.
