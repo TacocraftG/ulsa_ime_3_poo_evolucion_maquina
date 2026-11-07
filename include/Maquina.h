@@ -3,6 +3,9 @@
 
 #include <string>
 
+
+namespace planta
+{
 // Clase base abstracta de todas las maquinas de la planta.
 // Las derivadas implementan el trabajo fisico y el tiempo de ciclo; la base
 // valida el tiempo y registra una pieza por cada ciclo procesado.
@@ -31,5 +34,8 @@ public:
     int getTiempoTrabajadoSeg() const;
     void mostrarEstado() const;
 };
+
+}  // namespace planta
+
 
 #endif

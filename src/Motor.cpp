@@ -3,6 +3,9 @@
 #include <algorithm>
 #include <stdexcept>
 
+
+namespace planta
+{
 Motor::Motor(double velocidadMaxRpm)
     : velocidadMaxRpm(velocidadMaxRpm), velocidadActualRpm(0.0)
 {
@@ -21,3 +24,5 @@ double Motor::getVelocidad() const
 {
     return velocidadActualRpm;
 }
+
+}  // namespace planta

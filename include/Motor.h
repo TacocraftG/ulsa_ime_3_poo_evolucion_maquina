@@ -1,6 +1,9 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
+namespace planta
+{
+
 class Motor
 {
 private:
@@ -13,5 +16,8 @@ public:
     void fijarVelocidad(double rpm);
     double getVelocidad() const;
 };
+
+}  // namespace planta
+
 
 #endif

@@ -34,14 +34,14 @@ La clase sera utlizada por otros desarroladores (mis compañeros), esta clase se
 
 | Elemento | Etapa 0 | Etapa 9 | Etapa que lo cambió |
 | --- | --- | --- | --- |
-| Visibilidad de los atributos de `Maquina` | _____ | _____ | _____ |
-| `procesar()` | _____ | _____ | _____ |
-| `tiempoCicloSeg()` | _____ | _____ | _____ |
-| Destructor de `Maquina` | _____ | _____ | _____ |
-| ¿Se pueden crear objetos `Maquina`? | _____ | _____ | _____ |
-| Relación `ControlDeLinea` - `Maquina` | _____ | _____ | _____ |
-| Relación `Torno` - `Motor` | _____ | _____ | _____ |
-| Relación `BandaTransportadora` - `Motor` | _____ | _____ | _____ |
+| Visibilidad de los atributos de `Maquina` | publicos | privados | Etapa 1 |
+| `procesar()` | Metodo publico no virtual | Metodo publico no virtual de la base que aplica el contrato | Etapa 7 |
+| `tiempoCicloSeg()` | No existia | Virtual puro, implementado por cada maquina | Etapa 2 y Etapa 5 |
+| Destructor de `Maquina` | No existia | Virtual predeterminado | Etapa 4 |
+| ¿Se pueden crear objetos `Maquina`? | Si | No, es abstracta | Etapa 5 |
+| Relación `ControlDeLinea` - `Maquina` | No existia `ControlDeLinea` | Agregacion mediante punteros | Etapa 3 |
+| Relación `Torno` - `Motor` | No existia el motor | Composicion: `Torno` contiene un `Motor` | Etapa 4 |
+| Relación `BandaTransportadora` - `Motor` | No existia la banda | Composicion: `BandaTransportadora` contiene un `Motor` | Etapa 8 |
 
 ## Fase 3. Implementar
 
@@ -184,11 +184,15 @@ es composicion el motor forma parte de la banda y no se comparte como un objeto 
 
 a) Después de agregar la `Cortadora`, ¿qué archivos mostró `git status`? ¿Cuántos archivos de la librería tuviste que modificar?
 
-[Inserta aquí tu respuesta]
+Despues de confirmar primero el commit de la libreria, git status debe mostrar src/main.cpp como modificado y include/Cortadora.h y src/Cortadora.cpp como archivos nuevos. ehhh???
+
+No se modifica ningun archivo existente de la libreria para agregar la Cortadora.
 
 b) ¿Qué pasó al escribir `-lplanta` antes de `src/main.cpp`? ¿Por qué?
 
-[Inserta aquí tu respuesta]
+ al encontrar la libreria antes del codigo que la necesita, aun no tenia referencias pendientes que resolver. 
+ 
+ La libreria debe ir despues de src/main.cpp.
 
 **3.10 Bitácora de dudas**
 
@@ -227,7 +231,7 @@ Retos opcionales que intenté: _____
 
 **5.1 Enlace a mi fork**
 
-[Inserta aquí el enlace a tu fork]
+https://github.com/TacocraftG/ulsa_ime_3_poo_evolucion_maquina.git
 
 ## Cierre y reflexión
 

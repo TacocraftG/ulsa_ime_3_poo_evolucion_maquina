@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+
+namespace planta
+{
 bool ControlDeLinea::agregar(Maquina* maquina)
 {
     if (maquina == nullptr)
@@ -42,3 +45,5 @@ void ControlDeLinea::imprimirReporte() const
 
     std::cout << "Total de piezas: " << totalPiezas << '\n';
 }
+
+}  // namespace planta
